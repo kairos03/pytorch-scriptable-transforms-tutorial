@@ -15,7 +15,6 @@ if __name__ == "__main__":
         transform = transforms.ToTensor()
         script_transform = nn.Sequential(
             transforms.RandomHorizontalFlip(),
-            transforms.ConvertImageDtype(torch.float),
             transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
         )
         script_transform = torch.jit.script(script_transform)
